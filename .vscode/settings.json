@@ -5,12 +5,11 @@
         "reportMissingModuleSource": "none"
     },
     "python.terminal.activateEnvironment": false,
-    "micropico.openOnStart": true,
+    "micropico.openOnStart": false,
     "python.analysis.typeshedPaths": [
-        "./typings"
+        "~/.micropico-stubs/included"
     ],
     "python.analysis.extraPaths": [
-        "./typings"
-    ],
-    "pylint.args": ["init-hook='import sys;sys.path[1:1] = [\"./typings\",];"]
+        "~/.micropico-stubs/included"
+    ]
 }
