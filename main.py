@@ -1,6 +1,5 @@
 import time
 
-import machine
 from machine import Pin
 import onewire
 import ds18x20
@@ -8,7 +7,7 @@ import ds18x20
 pin = Pin(27, Pin.IN)
 print(pin.value())
 
-one_wire = onewire.OneWire(machine.Pin(pin))
+one_wire = onewire.OneWire(Pin(pin))
 sensor = ds18x20.DS18X20(one_wire)
 devices = sensor.scan()
 
