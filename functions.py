@@ -3,6 +3,9 @@ from time import sleep
 import secrets
 
 import network
+from machine import Pin
+from onewire import OneWire
+from ds18x20 import DS18X20
 
 
 def connect_to_wifi():
@@ -15,3 +18,8 @@ def connect_to_wifi():
             print("Connecting")
             sleep(1)
     print("Network config:", wlan.ipconfig("addr4"))
+
+
+def initialise_sensor(pin):
+    one_wire = OneWire(Pin(pin))
+    return DS18X20(one_wire)
