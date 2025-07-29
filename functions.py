@@ -9,10 +9,10 @@ from ds18x20 import DS18X20
 
 
 def connect_to_wifi():
+    print("Connecting to WiFi")
     wlan = network.WLAN(network.WLAN.IF_STA)
     wlan.active(True)
     if not wlan.isconnected():
-        print("Connecting to network...")
         wlan.connect(secrets.WIFI_SSID, secrets.WIFI_PASSWORD)
         while not wlan.isconnected():
             print("Connecting")
@@ -21,5 +21,6 @@ def connect_to_wifi():
 
 
 def initialise_sensor(pin):
+    print("Initialising sensor")
     one_wire = OneWire(Pin(pin))
     return DS18X20(one_wire)
