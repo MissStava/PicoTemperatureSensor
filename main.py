@@ -1,6 +1,9 @@
 from time import sleep
 
-import functions
+from machine import Pin
+from onewire import OneWire
+from ds18x20 import DS18X20
+
 from wifi import WiFi
 
 PIN_NUMBER = 27
@@ -10,7 +13,7 @@ def run_app():
     wifi = WiFi()
     wifi.connect()
 
-    sensor = functions.initialise_sensor(PIN_NUMBER)
+    sensor = DS18X20(OneWire(Pin(PIN_NUMBER, Pin.IN)))
 
     for device in sensor.scan():
         print("Device:", device)
