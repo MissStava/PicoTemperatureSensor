@@ -1,12 +1,15 @@
 from time import sleep
 
 import functions
+from wifi import WiFi
 
 PIN_NUMBER = 27
 
 
 def run_app():
-    functions.connect_to_wifi()
+    wifi = WiFi()
+    wifi.connect()
+
     sensor = functions.initialise_sensor(PIN_NUMBER)
 
     for device in sensor.scan():
