@@ -78,6 +78,6 @@ def initialise_sensor(pin_number):
     if pin_number is None:
         raise ValueError("Pin number must be specified to initialise the sensor")
 
-    pin = Pin(pin_number)
+    pin = Pin(pin_number, Pin.IN)
     one_wire = OneWire(pin)
     return DS18X20(one_wire)
